@@ -65,7 +65,10 @@ fi
 
 # kill process names that might stil
 # be running from last time
-pkill -x gazebo || true
+if [[ ! -n "$HEADLESS" ]]; then
+	pkill -x gazebo || true
+	pkill -x gzserver || true
+fi
 
 export PX4_SIM_MODEL=gazebo-classic_${model}
 export PX4_SIM_WORLD=${world}
