@@ -8,6 +8,9 @@ publications:
   - topic: /fmu/out/battery_status
     type: px4_msgs::msg::BatteryStatus
 
+  - topic: /fmu/out/esc_status
+    type: px4_msgs::msg::EscStatus
+
   - topic: /fmu/out/collision_constraints
     type: px4_msgs::msg::CollisionConstraints
 
@@ -25,6 +28,9 @@ publications:
 
   - topic: /fmu/out/sensor_combined
     type: px4_msgs::msg::SensorCombined
+
+  - topic: /fmu/out/vehicle_optical_flow
+    type: px4_msgs::msg::VehicleOpticalFlow
 
   - topic: /fmu/out/timesync_status
     type: px4_msgs::msg::TimesyncStatus
@@ -59,9 +65,11 @@ publications:
   - topic: /fmu/out/vehicle_trajectory_waypoint_desired
     type: px4_msgs::msg::VehicleTrajectoryWaypoint
 
+  - topic: /fmu/out/input_rc
+    type: px4_msgs::msg::InputRc
+
 # Create uORB::Publication
 subscriptions:
-
   - topic: /fmu/in/manual_control_input
     type: px4_msgs::msg::ManualControlSetpoint
 
@@ -115,6 +123,9 @@ subscriptions:
 
   - topic: /fmu/in/actuator_servos
     type: px4_msgs::msg::ActuatorServos
+
+  - topic: /fmu/in/input_rc
+    type: px4_msgs::msg::InputRc
 
 # Create uORB::PublicationMulti
 subscriptions_multi:
