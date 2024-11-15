@@ -35,8 +35,8 @@ publications:
   - topic: /fmu/out/manual_control_setpoint
     type: px4_msgs::msg::ManualControlSetpoint
 
-  # - topic: /fmu/out/message_format_response
-  #   type: px4_msgs::msg::MessageFormatResponse
+  - topic: /fmu/out/message_format_response
+    type: px4_msgs::msg::MessageFormatResponse
 
   # - topic: /fmu/out/position_setpoint_triplet
   #   type: px4_msgs::msg::PositionSetpointTriplet
@@ -150,6 +150,9 @@ subscriptions:
 
   - topic: /fmu/in/vehicle_command_mode_executor
     type: px4_msgs::msg::VehicleCommand
+
+  - topic: /fmu/in/vehicle_constraints
+    type: px4_msgs::msg::VehicleConstraints
 
   # - topic: /fmu/in/vehicle_trajectory_bezier
   #   type: px4_msgs::msg::VehicleTrajectoryBezier
