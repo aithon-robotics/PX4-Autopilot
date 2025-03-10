@@ -242,7 +242,10 @@ bool MulticopterLandDetector::_get_ground_contact_state()
 	// if there is no distance to ground estimate available then don't enforce using it.
 	// if a distance to the ground estimate is generally available (_dist_bottom_is_observable=true), then
 	// we already increased the hysteresis for the land detection states in order to reduce the chance of false positives.
-	const bool skip_close_to_ground_check = !_dist_bottom_is_observable || !_vehicle_local_position.dist_bottom_valid;
+	// const bool skip_close_to_ground_check = !_dist_bottom_is_observable || !_vehicle_local_position.dist_bottom_valid;
+
+	// Since the AITHON platform is also "landed" on the wall skip this check, to also directly switch to flying state
+	const bool skip_close_to_ground_check = true;
 	_close_to_ground_or_skipped_check = _is_close_to_ground() || skip_close_to_ground_check;
 
 	// TODO: we need an accelerometer based check for vertical movement for flying without GPS
