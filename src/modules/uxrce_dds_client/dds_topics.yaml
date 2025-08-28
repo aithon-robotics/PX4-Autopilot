@@ -117,9 +117,6 @@ publications:
   #   type: px4_msgs::msg::GimbalDeviceAttitudeStatus
   #   rate_limit: 20.
 
-  - topic: /fmu/out/vehicle_trajectory_waypoint_desired
-    type: px4_msgs::msg::VehicleTrajectoryWaypoint
-
   - topic: fmu/out/vehicle_rates_setpoint
     type: px4_msgs::msg::VehicleRatesSetpoint
 
@@ -208,12 +205,6 @@ subscriptions:
 
   - topic: /fmu/in/vehicle_constraints
     type: px4_msgs::msg::VehicleConstraints
-
-  # - topic: /fmu/in/vehicle_trajectory_bezier
-  #   type: px4_msgs::msg::VehicleTrajectoryBezier
-
-  # - topic: /fmu/in/vehicle_trajectory_waypoint
-  #   type: px4_msgs::msg::VehicleTrajectoryWaypoint
 
   - topic: /fmu/in/vehicle_thrust_setpoint
     type: px4_msgs::msg::VehicleThrustSetpoint
