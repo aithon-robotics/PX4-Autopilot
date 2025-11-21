@@ -98,6 +98,9 @@ publications:
     type: px4_msgs::msg::VehicleStatus
     rate_limit: 5.
 
+  - topic: /fmu/out/hover_thrust_estimate
+    type: px4_msgs::msg::HoverThrustEstimate
+
   # - topic: /fmu/out/airspeed_validated
   #   type: px4_msgs::msg::AirspeedValidated
   #  rate_limit: 50.
