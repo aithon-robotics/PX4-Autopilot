@@ -283,7 +283,7 @@ using namespace time_literals;
 
 
 
-#define INA228_SAMPLE_FREQUENCY_HZ           50
+#define INA228_SAMPLE_FREQUENCY_HZ           200
 #define INA228_SAMPLE_INTERVAL_US            (1_s / INA228_SAMPLE_FREQUENCY_HZ)
 #define INA228_CONVERSION_INTERVAL           (INA228_SAMPLE_INTERVAL_US - 7)
 #define MAX_CURRENT                          327.68f    /* Amps */
