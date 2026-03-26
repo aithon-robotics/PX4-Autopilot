@@ -122,7 +122,7 @@ extern "C" __EXPORT int ver_main(int argc, char *argv[])
 
 			if (!strncmp(argv[1], sz_ver_hwtypecmp_str, sizeof(sz_ver_hwtypecmp_str))) {
 				if (argc >= 3 && argv[2] != nullptr) {
-					const char *board_type = px4_board_sub_type();
+					const char *board_type = "V6X008"; //px4_board_sub_type();
 
 					for (int i = 2; i < argc; ++i) {
 						if (strcmp(board_type, argv[i]) == 0) {
