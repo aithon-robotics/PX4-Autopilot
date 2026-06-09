@@ -37,6 +37,9 @@ publications:
   - topic: /fmu/out/failsafe_flags
     type: px4_msgs::msg::FailsafeFlags
 
+  - topic: /fmu/out/failure_detector_status
+    type: px4_msgs::msg::FailureDetectorStatus
+
   - topic: /fmu/out/manual_control_setpoint
     type: px4_msgs::msg::ManualControlSetpoint
 
