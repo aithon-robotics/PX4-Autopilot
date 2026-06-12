@@ -121,6 +121,9 @@ publications:
   - topic: fmu/out/vehicle_torque_setpoint
     type: px4_msgs::msg::VehicleTorqueSetpoint
 
+  - topic: /fmu/out/mavlink_log
+    type: px4_msgs::msg::MavlinkLog
+
 # Create uORB::Publication
 subscriptions:
   - topic: /fmu/in/register_ext_component_request
