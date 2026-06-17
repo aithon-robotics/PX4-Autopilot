@@ -124,6 +124,9 @@ publications:
   - topic: /fmu/out/mavlink_log
     type: px4_msgs::msg::MavlinkLog
 
+  - topic: /fmu/out/actuator_armed
+    type: px4_msgs::msg::ActuatorArmed
+
 # Create uORB::Publication
 subscriptions:
   - topic: /fmu/in/register_ext_component_request
