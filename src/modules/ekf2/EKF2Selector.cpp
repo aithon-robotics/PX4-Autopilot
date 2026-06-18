@@ -476,7 +476,23 @@ void EKF2Selector::PublishVehicleLocalPosition()
 
 			} else if (instance_change || (local_position.heading_reset_counter != _local_position_last.heading_reset_counter)) {
 				++_heading_reset_counter;
-				_delta_heading_reset = matrix::wrap_pi(local_position.heading - _local_position_last.heading);
+
+				if (instance_change) {
+					// On instance switch, force heading continuity. Per-instance EV-to-NED frame
+					// calibration diverges when there is no absolute heading reference (no GPS, no
+					// magnetometer). The incoming instance's first post-switch EKF update can apply
+					// a yaw reset using its own calibration state, injecting a heading step equal to
+					// the inter-instance calibration difference. Apply a correction so the published
+					// heading is continuous with the outgoing instance; the new instance converges to
+					// the true heading within 1-2 EV fusion cycles.
+					const float heading_correction = matrix::wrap_pi(
+						_local_position_last.heading - local_position.heading);
+					local_position.heading = matrix::wrap_pi(local_position.heading + heading_correction);
+					_delta_heading_reset = 0.f;
+
+				} else {
+					_delta_heading_reset = matrix::wrap_pi(local_position.heading - _local_position_last.heading);
+				}
 			}
 
 			// HAGL (dist_bottom) reset
