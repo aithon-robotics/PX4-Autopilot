@@ -133,6 +133,10 @@
  *
  * Note that these are unshifted addresses.
  */
+
+/* bus 1 (external) runs at 400 kHz for the ina228 power monitor / ist8310 compass, others stay at 100 kHz */
+#define BOARD_I2C_BUS_CLOCK_INIT {400000, 100000, 100000, 100000}
+
 #define BOARD_MTD_NUM_EEPROM        2 /* MTD: base_eeprom, imu_eeprom*/
 
 #define PX4_I2C_OBDEV_SE050         0x48
