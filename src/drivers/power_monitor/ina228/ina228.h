@@ -172,7 +172,7 @@ using namespace time_literals;
 #define INA228_AVERAGES_512                  (6 << INA228_AVERAGES_SHIFTS)
 #define INA228_AVERAGES_1024                 (7 << INA228_AVERAGES_SHIFTS)
 
-#define INA228_ADCCONFIG (INA228_MODE_TEMP_SHUNT_BUS_CONT | INA228_VBUSCT_50US | INA228_VSHCT_50US | INA228_VTCT_50US |INA228_AVERAGES_1)
+#define INA228_ADCCONFIG (INA228_MODE_SHUNT_BUS_CONT | INA228_VBUSCT_50US | INA228_VSHCT_50US | INA228_VTCT_50US |INA228_AVERAGES_1)
 
 /* INA228 Shunt Calibration (SHUNT_CAL) 16-bit Register (Address = 2h) [reset = 1000h] */
 
@@ -283,7 +283,7 @@ using namespace time_literals;
 
 
 
-#define INA228_SAMPLE_FREQUENCY_HZ           1000
+#define INA228_SAMPLE_FREQUENCY_HZ           500
 #define INA228_SAMPLE_INTERVAL_US            (1_s / INA228_SAMPLE_FREQUENCY_HZ)
 #define INA228_CONVERSION_INTERVAL           (INA228_SAMPLE_INTERVAL_US - 7)
 #define MAX_CURRENT                          327.68f    /* Amps */
