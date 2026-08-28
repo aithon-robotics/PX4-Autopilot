@@ -128,3 +128,5 @@ px4_add_romfs_files(
 
 	# [22000, 22999] Reserve for custom models
 )
+px4_add_romfs_files(22001_gz_hummel)
+px4_add_romfs_files(22002_gz_hummel_selfnav)

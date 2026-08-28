@@ -1,0 +1,84 @@
+#!/bin/sh
+#
+# @name Gazebo hummel selfnav
+#
+# @type Quadrotor
+#
+# TODO: this is a stub, currently identical to 22001_gz_hummel. Fill in the
+# self-navigation-specific differences (e.g. params/mode setup for
+# atn_px4_modes) before relying on this airframe for anything.
+
+. ${R}etc/init.d/rc.mc_defaults
+
+PX4_SIMULATOR=${PX4_SIMULATOR:=gz}
+PX4_GZ_WORLD=${PX4_GZ_WORLD:=default}
+PX4_SIM_MODEL=${PX4_SIM_MODEL:=hummel}
+
+param set-default SIM_GZ_EN 1
+
+param set-default SENS_EN_GPSSIM 0
+param set-default SENS_EN_BAROSIM 0
+param set-default SENS_EN_MAGSIM 1
+
+param set-default CA_AIRFRAME 0
+param set-default CA_ROTOR_COUNT 4
+
+param set-default CA_ROTOR0_PX 0.35
+param set-default CA_ROTOR0_PY 0.35
+param set-default CA_ROTOR0_KM 0.0259
+param set-default CA_ROTOR0_CT 9.30
+
+param set-default CA_ROTOR1_PX -0.35
+param set-default CA_ROTOR1_PY -0.35
+param set-default CA_ROTOR1_KM  0.0259
+param set-default CA_ROTOR1_CT 9.30
+
+param set-default CA_ROTOR2_PX  0.35
+param set-default CA_ROTOR2_PY -0.35
+param set-default CA_ROTOR2_KM -0.0259
+param set-default CA_ROTOR2_CT 9.30
+
+param set-default CA_ROTOR3_PX -0.35
+param set-default CA_ROTOR3_PY  0.35
+param set-default CA_ROTOR3_KM -0.0259
+param set-default CA_ROTOR3_CT 9.30
+
+param set-default SIM_GZ_EC_FUNC1 101
+param set-default SIM_GZ_EC_FUNC2 102
+param set-default SIM_GZ_EC_FUNC3 103
+param set-default SIM_GZ_EC_FUNC4 104
+
+param set-default SIM_GZ_EC_MIN1 1
+param set-default SIM_GZ_EC_MIN2 1
+param set-default SIM_GZ_EC_MIN3 1
+param set-default SIM_GZ_EC_MIN4 1
+
+param set-default SIM_GZ_EC_MAX1 723
+param set-default SIM_GZ_EC_MAX2 723
+param set-default SIM_GZ_EC_MAX3 723
+param set-default SIM_GZ_EC_MAX4 723
+
+param set-default MPC_THR_HOVER 0.50
+
+
+
+
+# param set EKF2_AGP_CTRL	0 # ?
+param set EKF2_BARO_CTRL	0
+param set EKF2_DECL_TYPE	0 #
+param set EKF2_EV_CTRL	15
+param set EKF2_GPS_CTRL	0
+param set EKF2_HGT_REF	3
+param set EKF2_IMU_CTRL	3
+param set EKF2_MAG_CHECK	0
+param set EKF2_MAG_TYPE	5
+param set EKF2_OF_CTRL	0
+param set EKF2_RNG_CTRL	0
+param set EKF2_SYNT_MAG_Z	0
+param set EKF2_TERR_MASK	0
+param set SYS_HAS_BARO	0
+param set SYS_HAS_GPS	0
+param set SYS_HAS_MAG	0
+# param set SYS_HAS_NUM_ASPD	0
+param set SYS_HAS_NUM_DIST	0
+param set SIM_GPS_USED  0
