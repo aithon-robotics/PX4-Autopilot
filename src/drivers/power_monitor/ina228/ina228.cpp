@@ -353,14 +353,28 @@ INA228::start()
 
 	_measure_interval = INA228_CONVERSION_INTERVAL;
 
-	/* schedule a cycle to start things */
-	ScheduleDelayed(5);
+	if (_mode_triggered) {
+		/* schedule a cycle to start things */
+		ScheduleDelayed(5);
+
+	} else {
+		/* the ADC converts continuously, so read at a fixed rate that doesn't drift with the I2C transfer time */
+		_measure_interval = INA228_SAMPLE_INTERVAL_US;
+		ScheduleOnInterval(INA228_SAMPLE_INTERVAL_US, 5);
+	}
 }
 
 void
 INA228::RunImpl()
 {
-	if (_initialized) {
+	if (_initialized && !_mode_triggered) {
+		/* continuous mode: just read the latest conversion result, scheduled by ScheduleOnInterval() */
+		if (collect() != PX4_OK) {
+			perf_count(_collection_errors);
+			start();
+		}
+
+	} else if (_initialized) {
 		if (_collect_phase) {
 			/* perform collection */
 			if (collect() != PX4_OK) {
