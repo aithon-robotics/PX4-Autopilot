@@ -608,6 +608,7 @@ void MavlinkReceiver::handle_message_command_both(mavlink_message_t *msg, const 
 
 	} else if (cmd_mavlink.command == MAV_CMD_DO_SET_MODE) {
 		_cmd_pub.publish(vehicle_command);
+		send_ack = false;	//Acknowledgement handled by Commander
 
 	} else if (cmd_mavlink.command == MAV_CMD_DO_AUTOTUNE_ENABLE) {
 
@@ -3152,7 +3153,7 @@ MavlinkReceiver::run()
 	ssize_t nread = 0;
 	hrt_abstime last_send_update = 0;
 
-	while (!_mavlink.should_exit()) {
+	while (!_should_exit.load()) {
 
 		// check for parameter updates
 		if (_parameter_update_sub.updated()) {
