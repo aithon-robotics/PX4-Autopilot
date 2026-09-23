@@ -52,7 +52,7 @@ PARAM_DEFINE_INT32(SENS_EN_INA228, 0);
  * @increment 1
  * @reboot_required true
 */
-PARAM_DEFINE_INT32(INA228_CONFIG, 63779);
+PARAM_DEFINE_INT32(INA228_CONFIG, 62082);
 
 /**
  * INA228 Power Monitor Max Current
